@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Global from './Global'
+import Header from './components/includes/Header';
+import Places from "./components/screens/Places"
+import Place from "./components/screens/Place"
+import Footer from './components/includes/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Global />
+          <Router>
+            <AppContainer>
+                  <Header />
+                  <Switch>
+                    <Route path="/" exact component={Places}/>
+                    <Route path="/place/:id" component={Place}/>
+                  </Switch>
+                  <Footer />
+            </AppContainer>
+        </Router>
+    </Fragment>
   );
 }
 
+const AppContainer = styled.div`
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+`;
 export default App;
