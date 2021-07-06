@@ -58,10 +58,7 @@ const DeatilContainer = styled.div`
         padding: 50px 60px;
     }
     @media all and (max-width:640px) {
-        padding: 50px 20;
-    }
-    @media all and (max-width:360px) {
-        padding: 50px 20px;
+        padding: 50px 0;
     }
 `;
 const Heading = styled.h2`
